@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment Tab</title>
+    <script src="script.js"></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Add event handlers for Update and Delete buttons -->
+        <button onclick="updateFunction()">Update</button>
+        <button onclick="showPopup()">Add</button>
+        <button onclick="deleteFunction()">Delete</button>
+    </div>
+
+    <div class="popup" id="popup">
+        <form onsubmit="confirmAdd(); return false;">
+            <label for="subject">Subject:</label>
+            <select id="subject">
+                <option value="ITEW4">ITEW4</option>
+                <option value="CCS112">CCS112</option>
+                <option value="ITP109">ITP109</option>
+                <option value="ITP108">ITP108</option>
+                <option value="ITP107">ITP107</option>
+                <option value="CCS113">CCS113</option>
+                <option value="HMN101">HMN101</option>
+            </select>
+            <h5>Deadline:</h5>
+            <input type="date" id="deadline" placeholder="Enter deadline">
+            
+            <label for="period">Period:</label>
+            <select id="period">
+                <option value="Prelim">Prelim</option>
+                <option value="Midterm">Midterm</option>
+                <option value="Final">Final</option>
+            </select>
+            <h5>Title:</h5>
+            <input type="text" id="title" placeholder="Enter title">
+            <h5>Description:</h5>
+            <input type="text" id="description" placeholder="Enter description">
+            <button type="submit">Confirm</button>
+        </form>
+    </div>
+
+    <div>
+        <br>
+        <h1>To Do's</h1>
+        <ul id="itemList">
+            <!-- Existing list items can be added here -->
+        </ul>
+    </div>
+
+    <!-- Define a template for list items -->
+    <template id="listItemTemplate">
+        <li>
+            <div style="background-color: #007bff; color: #fff; padding: 5px; border-radius: 5px;">
+                <strong class="subject" id="Subject"></strong>
+            </div>
+            <div>
+                <strong>Deadline:</strong> <span class="deadline"></span>
+            </div>
+            <div>
+                <strong id="Peiod">Period:</strong> <span class="period"></span>
+            </div>
+            <div>
+                <strong id="Title">Title:</strong> <span class="title"></span>
+            </div>
+            <div>
+                <br>
+                <strong>Description:<br></strong> <span class="description"></span>
+                <br>
+                <button class="done" onclick="activityDone(this.parentElement.parentElement)">Finished</button>
+                <button class="delete" onclick="deleteActivity(this.parentElement.parentElement)">Delete</button> 
+            </div>
+        </li>
+    </template>
+    <div class="containerDone" id="finishedAssignments">
+        <!-- Add event handlers for Update and Delete buttons -->
+        <ul class="liContainer" id="liContainer">
+            <!-- This is where you can move list items -->
+        </ul>
+        <h2> Finished Tasks</h2>
+        <div class="containerFinish" id="finishedAssignmentsContainer">
+            <!-- Additional content for finished assignments can be added here -->
+            <!-- <button onclick="deleteFinishedTask()" id="btnFinishedDelete">Delete</button> -->
+        </div>
+        
+    </div>
+    
+
+</body>
+
+</html>
